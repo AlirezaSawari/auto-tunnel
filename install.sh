@@ -16,7 +16,7 @@ if [[ $distro != "ubuntu" ]]; then
 	exit 1
 fi
 
-echo "This is foreignVPS or domesticVPS?"
+echo "This is domestic server or foreign server?"
 echo "   1) domestic server"
 echo "   2) foreign server"
 read -r -p "Please select one [1-2]: " -e OPTION
@@ -45,9 +45,8 @@ case $OPTION in
   wget $fileLink -O /var/www/html/dl
   iptables-save > /etc/iptables/rules.v4
   ip6tables-save > /etc/iptables/rules.v6
-  echo "your server is ready and this is a file for download by foreign server:"
+  echo "your server is ready and this is a link for download by foreign server:"
   echo "http://$thisServerIP/dl"
-  echo "copy this link and use in foreign server"
   ;;
 2)
     apt update -y && apt upgrade -y && apt install wget cron -y
