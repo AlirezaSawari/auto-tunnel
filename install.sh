@@ -53,9 +53,7 @@ case $OPTION in
     echo "Enter Link to Download it:"
     read -r linkToDownload
     echo "#!/bin/bash
-while true; do
-  wget -qO- $linkToDownload &> /dev/null
-done
+wget -qO- $linkToDownload &> /dev/null
 " >/root/Downloader.sh
   echo "0 * * * * bash /root/Downloader.sh" >/etc/cron.d/at_cronjob
   chmod 0644 /etc/cron.d/at_cronjob
